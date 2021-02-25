@@ -2,13 +2,13 @@ import cv2
 print ("Packege Imported")
 
 #leer imagenes
-img = cv2.imread("Resourses/Daniela.jpg")
+img = cv2.imread( """ANEXA RUTA Y NOMBRE DE TU ARCHIVO, SAMPLE: "Resourses/Daniela.jpg" """)
 
 cv2.imshow("Output", img) #(primer parametro nombre de la ventada, segundo imagen a mostrar)
-cv2.waitKey(0) #esto es para demorar unos segundos la ventana
+cv2.waitKey(0) #demorar unos segundos la ventana
 
 #Importar vídeo
-cap=cv2.VideoCapture("Resourses/Sleeping Concert_ART")
+cap=cv2.VideoCapture( """AANEXA RUTA Y NOMBRE DE TU ARCHIVO, SAMPLE: "Resourses/Sleeping Concert_ART" """)
 
 while True:
     success,img =cap.read()
@@ -33,11 +33,11 @@ while True:
 import cv2
 import numpy as np
 
-img = cv2.imread("Resourses/INSTA_L.jpg")
+img = cv2.imread("""ANEXA RUTA Y NOMBRE DE TU ARCHIVO, SAMPLE: "Resourses/Daniela.jpg" """)
 Kernel = np.ones((5,5),np.uint8)
 
-imgGray= cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) #Codigo para hacerla blanco y negro
-imgBlur=cv2.GaussianBlur(imgGray,(7,7),0) #nombre de la imagen, que tanto blur
+imgGray= cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) #Código para hacerla blanco y negro
+imgBlur=cv2.GaussianBlur(imgGray,(7,7),0) #nombre de la imagen, settings del blur
 imgCanny= cv2.Canny(img,100,100) #efecto en negros
 imgDialation = cv2.dilate(imgCanny,Kernel,iterations=1) #Dilatar líneas de la imagen
 imgEroded = cv2.erode(imgDialation, Kernel, iterations=1)
@@ -51,7 +51,7 @@ cv2.imshow("Eroded Image", imgEroded)
 cv2.waitKey(0)
 
 #Resahpe and Cropp image
-img = cv2.imread("Resourses/INSTA_L.jpg")
+img = cv2.imread("""ANEXA RUTA Y NOMBRE DE TU ARCHIVO, SAMPLE: "Resourses/Daniela.jpg" """)
 print(img.shape) # para saber el tamaño actual
 
 imgResize=cv2.resize(img,(300,200)) # para asignar un nuevo tamaño a la imagen
