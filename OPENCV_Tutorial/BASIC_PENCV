@@ -1,0 +1,94 @@
+#IMPORTAR IMAGEN
+import cv2
+print ("Packege Imported")
+
+img = cv2.imread("patio_1.png") #RUTA DE LA IMAGEN
+
+cv2.imshow("Output", img) #primer parametro nombre de la ventada, segundo imagen a mostrar
+cv2.waitKey(0) #esto es para demorar la ventana
+
+
+
+#IMPORTAR VIDEO
+import cv2
+cap=cv2.VideoCapture("Sleeping Concert_ART") #RUTA DEL VIDEO
+
+while True:
+    success,img =cap.read()
+    cv2.imshow("Video",img)
+    if cv2.waitKey(1) & 0xFF ==ord('q'):
+        break
+
+
+
+
+#WEBCAM connect
+import cv2
+cap=cv2.VideoCapture(0)
+cap.set(3,640) #ANCHO
+cap.set(4,480) #ALTO
+cap.set(10,100) #para mejorar el brillo de la pantalla
+
+while True:
+    success,img =cap.read()
+    cv2.imshow("Video",img)
+    if cv2.waitKey(1) & 0xFF ==ord('q'):
+        break
+
+
+
+#MANIPULAR IMÁGENES
+import cv2
+import numpy as np
+
+img = cv2.imread("patio_1.png")
+Kernel = np.ones((5,5),np.uint8)
+
+imgGray= cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) #CONVERTIR A BLANCO Y NEGRO
+imgBlur=cv2.GaussianBlur(imgGray,(7,7),0) # GAUSSIAN BLUR
+imgCanny= cv2.Canny(img,100,100) #Edges detection
+imgDialation = cv2.dilate(imgCanny,Kernel,iterations=1) #EDGES DILATATION
+imgEroded = cv2.erode(imgDialation, Kernel, iterations=1) # thin EDGES
+
+cv2.imshow("Gray Image", imgGray)
+cv2.imshow("BLUR Image", imgBlur)
+cv2.imshow("Canny Image", imgCanny)
+cv2.imshow("Dialation Image", imgDialation)
+cv2.imshow("Eroded Image", imgEroded)
+cv2.waitKey(0)
+
+
+
+
+#RESHAPE and CUT
+import cv2
+img = cv2.imread("patio_1.png")
+print(img.shape) #AVERIGUAR TAMAÑO ACTUAL
+
+imgResize=cv2.resize(img,(300,200)) #RESIZE, W,H
+
+imgCropped=img[0:200,200:500] #CROPP:  H, W /
+
+cv2.imshow("imagen normal",img)
+cv2.imshow("imagen resize",imgResize)
+cv2.imshow("imagen Croped",imgCropped)
+
+cv2.waitKey(0)
+
+#IMAGE CREATION
+import cv2
+import numpy as np
+
+img= np.zeros((512,512)) #los zeros son negros los unos son blanco
+
+img2[:]=255,0,0 #ALL BLUE
+img3[200:300,100:300]=255,0,0 #SECCIÓN DEFINIDA DE AZUL: 200:300,100:300
+
+
+cv2.line(img,(0,0),(300,300),(0,255,0),3) #PUNTO DE INICIO, PUNTO FINAL, COLOR, GROSOR
+cv2.rectangle(img,(0,0),(250,300),(0,0,255),3)
+cv2.rectangle(img,(0,0),(250,300),(0,0,255),cv2.FILLED)
+cv2.circle(img,(400,50),30, (1,1,1),3)
+cv2.imshow("DEFINE NOMBRE",#DEFINE IMAGEN)
+
+cv2.waitKey(0)
