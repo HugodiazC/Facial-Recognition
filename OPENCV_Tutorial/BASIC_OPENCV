@@ -79,10 +79,10 @@ cv2.waitKey(0)
 import cv2
 import numpy as np
 
-img= np.zeros((512,512)) #los zeros son negros los unos son blanco
+img= np.zeros((512,512,3)) #los zeros son negros los unos son blanco
 
-img2[:]=255,0,0 #ALL BLUE
-img3[200:300,100:300]=255,0,0 #SECCIÓN DEFINIDA DE AZUL: 200:300,100:300
+img[:]=255,0,0 #ALL BLUE
+img[200:300,100:300]=255,0,0 #SECCIÓN DEFINIDA DE AZUL: 200:300,100:300
 
 
 cv2.line(img,(0,0),(300,300),(0,255,0),3) #PUNTO DE INICIO, PUNTO FINAL, COLOR, GROSOR
